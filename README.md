@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# feedback-bot-aiogram
-Feedback bot written on Aiogram library
-=======
 # Feedback Bot (aiogram)
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
 ![aiogram](https://img.shields.io/badge/aiogram-3.20-blue)
@@ -78,4 +74,3 @@ and manage user bans.
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
->>>>>>> 64727da (First commit)
