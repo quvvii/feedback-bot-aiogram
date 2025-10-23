@@ -1,11 +1,14 @@
 # Feedback Bot (aiogram)
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
-![aiogram](https://img.shields.io/badge/aiogram-3.20-blue)
+![aiogram](https://img.shields.io/badge/aiogram-3.20-red)
+![Docker](https://img.shields.io/badge/Docker-gray?logo=docker)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 A Telegram bot built with **aiogram 3.20** and **Tortoise ORM** 
 to handle user feedback, supports all types of messages, 
 and manage user bans.
+
+---
 
 ## Features
 - Supports all types of Telegram messages (text, images, etc.).
@@ -20,36 +23,35 @@ and manage user bans.
 - Your telegram ID (can find it in [@username_to_id_bot](https://t.me/username_to_id_bot))
 - PostgreSQL or SQLite database
 
+---
+
 ## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/quvvii/feedback-bot-aiogram.git
-   cd feedback-bot-aiogram
-   ```
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Create a `.env` file in the project root with the following content:
+### Using Docker
+1. Create a `.env` file in the project root with the following content:
    ```env
    TELEGRAM_BOT_TOKEN=
    TELEGRAM_ADMIN_ID=
    DATABASE_URL=sqlite://db.sqlite3 
    # For PostgreSQL: DATABASE_URL=postgresql://user:password@localhost:5432/dbname
    ```
-
-## Usage
-1. Run the bot locally:
+   
+2. Build the image:
    ```bash
-   python -m tgbot
+   docker build -t feedback-bot .
+   ```
+
+3. Start the container: 
+   ```bash
+   docker run -d \
+   --name feedback-bot-container \
+   --env-file ./.env \
+   feedback-bot
    ```
    
-2. Available commands:
+---
+
+## Usage
+1. Available commands:
 
    **Admin Commands**:
    - `/start`: Pings the bot.
@@ -62,7 +64,7 @@ and manage user bans.
    - Admins can reply directly to user messages via the bot.
 
 
-3. Screenshots:
+2. Screenshots:
 
    **User view**:
 
@@ -71,6 +73,8 @@ and manage user bans.
    **Admin view**:
 
    ![Admin](https://i.ibb.co/twC0SXTm/photo-2025-06-29-15-41-23.jpg)
+
+---
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
